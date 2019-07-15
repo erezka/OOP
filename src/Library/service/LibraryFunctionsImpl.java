@@ -8,7 +8,7 @@ public interface LibraryFunctionsImpl {
 
     boolean deleteBook(Book book, Library library);
 
-    Book searchBook(int serial, String author, Library library);
+    Book searchBook(String author, String name, Library library, Book book);
 
 
 }

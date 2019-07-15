@@ -28,9 +28,16 @@ public class LibraryServices implements LibraryFunctionsImpl {
 
     }
 
-    public Book searchBook(int serial, String name, Library library) {
+    public boolean bookExists(int i, Book book, Library library){
+        return (library.getBooks()[i].getBookName().equals(book.getBookName()))&&(library.getBooks()[i].getBookAuthor().equals(book.getBookAuthor()));
+    }
+
+    public Book searchBook(String author, String name, Library library, Book book) {
+
         for (int i = 0; i < library.getBooks().length;i++) {
-            if (library.getBooks()[i] != null && )
+            author = book.getBookAuthor();
+            name = book.getBookName();
+            if (bookExists(i,author,name)
 
         }
 
