@@ -45,7 +45,7 @@ public class Library implements LibraryFunctionsImpl {
 
     }
 
-     public Book searchBook(String bookName, String bookAuthor) {
+    public Book searchBook(String bookName, String bookAuthor) {
         for (int i = 0; i < getBooks().length; i++) {
             if (getBooks()[i] != null && bookName.equalsIgnoreCase(getBooks()[i].getBookName()) &&
                     bookAuthor.equalsIgnoreCase(getBooks()[i].getBookAuthor())) {
