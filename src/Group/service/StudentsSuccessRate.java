@@ -3,9 +3,9 @@ package Group.service;
 import Group.entity.Student;
 import Group.repository.StudentsGroup;
 
-public class StudentsSuccessRate implements SuccessCalculatable {
+public class StudentsSuccessRate {
 
-    public double studentAverageSuccessRate(Student student) {
+    public static double studentAverageSuccessRate(Student student) {
         double marksSumm = 0;
         for (int i = 0; i < student.getStudentProgress().getMarks().length; i++) {
             marksSumm += student.getStudentProgress().getMarks()[i];
@@ -15,51 +15,45 @@ public class StudentsSuccessRate implements SuccessCalculatable {
     }
 
 
-    public void findExellentStudents(StudentsGroup studentsGroup) {
-        int countExellentMarks = 0;
+    public static int findExellentStudents(StudentsGroup studentsGroup) {
         int countExellentStudents = 0;
         for (int i = 0; i < studentsGroup.getGroupOfStudents().length; i++) {
+            int countExellentMarks = 0;
             if (studentsGroup.getGroupOfStudents()[i] != null) {
-                for (int j : studentsGroup.getGroupOfStudents()[i].getStudentProgress().getMarks()) {
+                for (int j = 0; j <studentsGroup.getGroupOfStudents()[i].getStudentProgress().getMarks().length ; j++) {
                     if (studentsGroup.getGroupOfStudents()[i].getStudentProgress().getMarks()[j] == 5) {
                         countExellentMarks++;
                     }
-
                 }
-
-            } else if (countExellentMarks == studentsGroup.getGroupOfStudents()[i].getStudentProgress().getMarks().length) {
-                countExellentStudents++;
-
             }
-
+            if (countExellentMarks == studentsGroup.getGroupOfStudents()[i].getStudentProgress().getMarks().length) {
+                countExellentStudents++;
+            }
         }
-        System.out.println("Количество отличников в группе " + studentsGroup.getGroupName() + ": " + countExellentStudents);
-
+        return countExellentStudents;
     }
 
-    public void findUnsuccessfulStudents(StudentsGroup studentsGroup) {
-        int countUnsuccessfulMarks = 0;
+    public static int findUnsuccessfulStudents(StudentsGroup studentsGroup) {
         int countUnsuccessfulStudents = 0;
         for (int i = 0; i < studentsGroup.getGroupOfStudents().length; i++) {
+            int countUnsuccessfulMarks = 0;
             if (studentsGroup.getGroupOfStudents()[i] != null) {
-                for (int j : studentsGroup.getGroupOfStudents()[i].getStudentProgress().getMarks()) {
+                for (int j = 0; j <studentsGroup.getGroupOfStudents()[i].getStudentProgress().getMarks().length ; j++) {
                     if (studentsGroup.getGroupOfStudents()[i].getStudentProgress().getMarks()[j] == 2) {
                         countUnsuccessfulMarks++;
                     }
-
                 }
-
-            } else if (countUnsuccessfulMarks > 0) {
+            }
+            if (countUnsuccessfulMarks > 0) {
                 countUnsuccessfulStudents++;
-
             }
 
         }
-        System.out.println("Количество двоечников в группе " + studentsGroup.getGroupName() + ": " + countUnsuccessfulStudents);
+        return countUnsuccessfulStudents;
 
     }
 
-    public void groupAverageSuccessRate(StudentsGroup studentsGroup) {
+    public static double groupAverageSuccessRate(StudentsGroup studentsGroup) {
         double groupAverageMark = 0;
         for (int i = 0; i < studentsGroup.getGroupOfStudents().length; i++) {
             if (studentsGroup.getGroupOfStudents()[i] != null) {
@@ -68,7 +62,7 @@ public class StudentsSuccessRate implements SuccessCalculatable {
             }
 
         }
-        System.out.println("Средняя оценка по группе " + studentsGroup.getGroupName() + ": " + groupAverageMark/studentsGroup.getGroupOfStudents().length);
+        return groupAverageMark/studentsGroup.getGroupOfStudents().length;
 
     }
 

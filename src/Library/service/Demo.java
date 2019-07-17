@@ -18,11 +18,11 @@ public class Demo implements RunableImpl {
         library1.addBook(book4);
         library1.addBook(book5);
 
-        library1.howManyBooks(library1);
         System.out.println(library1.toString());
 
-        library1.searchBook("хранитель мечей","ник перумов");
         library1.deleteBook(4);
+
+        System.out.println(library1.toString());
 
         System.out.println(library1.searchBook("Гарри Поттер", "джоан Роулинг").toString());
 

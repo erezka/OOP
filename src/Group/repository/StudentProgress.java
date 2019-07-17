@@ -1,6 +1,8 @@
 package Group.repository;
 
 
+import java.util.Arrays;
+
 import static java.lang.Math.random;
 
 public class StudentProgress {
@@ -19,5 +21,11 @@ public class StudentProgress {
 
     public int[] getMarks() {
         return marks;
+    }
+
+    @Override
+    public String toString() {
+        return "Математика: " + getMarks()[0] + "; " + "Химия: " + getMarks()[1] + "; " + "Физика: "
+                + getMarks()[2] + "; " + "Языки: " + getMarks()[3];
     }
 }

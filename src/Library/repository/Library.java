@@ -7,7 +7,7 @@ public class Library implements LibraryFunctionsImpl {
 
     private String libraryName;
     private Book[] books;
-    int count = 0;
+
 
     public Library(String libraryName) {
         this.libraryName = libraryName;
@@ -56,6 +56,7 @@ public class Library implements LibraryFunctionsImpl {
     }
 
     public int howManyBooks(Library library) {
+        int count = 0;
         for (int i = 0; i < library.getBooks().length; i++) {
             if (library.getBooks()[i] != null) {
                 count++;
@@ -67,6 +68,6 @@ public class Library implements LibraryFunctionsImpl {
 
     @Override
     public String toString() {
-        return "В библиотеке " + libraryName + " содержится " + count + "книг";
+        return "В библиотеке " + libraryName + " содержится " + howManyBooks(this) + " книг";
     }
 }
