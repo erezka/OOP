@@ -3,7 +3,7 @@ package Group.service;
 import Group.entity.Student;
 import Group.repository.StudentsGroup;
 
-public class StudentsSuccessRate implements SuccessCabculatable {
+public class StudentsSuccessRate implements SuccessCalculatable {
 
     public double studentAverageSuccessRate(Student student) {
         double marksSumm = 0;
@@ -68,7 +68,7 @@ public class StudentsSuccessRate implements SuccessCabculatable {
             }
 
         }
-        System.out.println("Средняя оценка по группе " + studentsGroup.getGroupName() + ": " + groupAverageMark);
+        System.out.println("Средняя оценка по группе " + studentsGroup.getGroupName() + ": " + groupAverageMark/studentsGroup.getGroupOfStudents().length);
 
     }
 
